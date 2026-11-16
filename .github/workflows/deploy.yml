@@ -14,9 +14,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      SITE_URL: ${{ vars.SITE_URL }}
-      BASE_PATH: ${{ vars.BASE_PATH }}
 
     steps:
       - name: Checkout
@@ -27,7 +24,6 @@ jobs:
         with:
           node-version: '24'
           package-manager: npm
-          cache: false
 
   deploy:
     needs: build
