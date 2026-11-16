@@ -1,0 +1,8 @@
+---
+import { SITE } from '../site';
+import { withBase } from '../lib/posts';
+---
+<footer class="footer container">
+  <div>© {new Date().getFullYear()} {SITE.author} <span class="footer-divider">·</span> Viết chậm, nhớ lâu.</div>
+  <div class="footer-links"><a href={withBase('/rss.xml')}>RSS</a>{SITE.github && <a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>}</div>
+</footer>

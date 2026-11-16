@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { allPosts, slugify, tagUrl } from '../../lib/posts';
+const posts = await allPosts();
+const counts = new Map<string, { name: string; count: number }>();
+for (const post of posts) for (const tag of post.data.tags) {
+  const key = slugify(tag);
+  const current = counts.get(key);
+  counts.set(key, { name: current?.name || tag, count: (current?.count || 0) + 1 });
+}
+const tags = [...counts.values()].sort((a,b) => b.count - a.count || a.name.localeCompare(b.name, 'vi'));
+---
+<BaseLayout title="Tags">
+  <div class="page-heading"><span class="eyebrow">EXPLORE BY TOPIC</span><h1>Tags<span class="accent-dot">.</span></h1><p>Tìm ghi chép theo những chủ đề tôi quan tâm.</p></div>
+  <div class="tag-cloud">{tags.map(tag => <a class="tag-pill" href={tagUrl(tag.name)}><span>#{tag.name}</span><span class="tag-count">{tag.count}</span></a>)}</div>
+</BaseLayout>

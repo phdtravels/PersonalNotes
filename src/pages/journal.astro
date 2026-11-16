@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { allPosts } from '../lib/posts';
+const posts = (await allPosts()).filter(p => p.data.category === 'journal');
+---
+<BaseLayout title="Journal" description="Nhật ký cá nhân, trải nghiệm và suy nghĩ mỗi ngày.">
+  <div class="page-heading"><span class="eyebrow">LIFE, MOMENTS & REFLECTIONS</span><h1>Journal<span class="accent-dot">.</span></h1><p>Những ngày bình thường, những câu chuyện nhỏ, và những điều tôi muốn nhớ.</p></div>
+  <PostList posts={posts} />
+</BaseLayout>

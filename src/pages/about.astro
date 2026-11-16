@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../site';
+---
+<BaseLayout title="About">
+  <div class="page-heading"><span class="eyebrow">A LITTLE ABOUT ME</span><h1>Xin chào<span class="accent-dot">.</span></h1><p>Rất vui vì bạn đã ghé qua góc nhỏ này.</p></div>
+  <div class="prose about-prose">
+    <p>Tôi là <strong>{SITE.author}</strong>. Tôi thích khám phá công nghệ và ghi lại những điều bé nhỏ trong cuộc sống.</p>
+    <p>Website này là một cuốn sổ mở: đôi khi là một trải nghiệm cá nhân, đôi khi là bài học từ một đoạn code, cuốn sách, hay hành trình nào đó.</p>
+    <h2>Tại sao tôi viết?</h2>
+    <p>Để nhớ lâu hơn, hiểu rõ hơn, và đôi khi tìm được những người có cùng mối quan tâm.</p>
+    <h2>Liên hệ</h2>
+    <p>Bạn có thể chỉnh nội dung trang này trong <code>src/pages/about.astro</code>. {SITE.email && <a href={`mailto:${SITE.email}`}>Gửi email cho tôi</a>}</p>
+  </div>
+</BaseLayout>

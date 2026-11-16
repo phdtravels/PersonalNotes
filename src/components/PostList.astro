@@ -1,0 +1,15 @@
+---
+import type { Post } from '../lib/posts';
+import { postUrl, formatDate, tagUrl } from '../lib/posts';
+interface Props { posts: Post[]; }
+const { posts } = Astro.props;
+---
+<div class="post-list">
+  {posts.length === 0 && <p class="muted">Chưa có bài viết nào.</p>}
+  {posts.map((post) => <article class="post-item">
+    <div class="post-meta"><time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time><span class="meta-dot">·</span><span>{post.data.category === 'tech' ? 'Tech' : 'Journal'}</span></div>
+    <h2 class="post-title"><a href={postUrl(post)}>{post.data.title}</a></h2>
+    <p class="post-description">{post.data.description}</p>
+    <div class="post-tags">{post.data.tags.map(tag => <a href={tagUrl(tag)}>#{tag}</a>)}</div>
+  </article>)}
+</div>

@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/posts';
+---
+<BaseLayout title="Không tìm thấy trang"><div class="not-found"><span class="eyebrow">PAGE NOT FOUND</span><h1>404<span class="accent-dot">.</span></h1><p>Hình như trang này không còn ở đây.</p><a class="primary-link" href={withBase('/')}>← Về trang chủ</a></div></BaseLayout>

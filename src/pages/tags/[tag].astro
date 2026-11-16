@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { allPosts, slugify, withBase } from '../../lib/posts';
+export async function getStaticPaths() {
+  const posts = await allPosts();
+  const tags = new Map<string, string>();
+  for (const post of posts) for (const tag of post.data.tags) tags.set(slugify(tag), tag);
+  return [...tags].map(([tag, name]) => ({ params: { tag }, props: { name } }));
+}
+const { name } = Astro.props;
+const posts = (await allPosts()).filter(p => p.data.tags.some(tag => slugify(tag) === Astro.params.tag));
+---
+<BaseLayout title={`#${name}`}>
+  <div class="page-heading"><a class="back-link" href={withBase('/tags/')}>← Tất cả tags</a><span class="eyebrow">TOPIC</span><h1>#{name}<span class="accent-dot">.</span></h1><p>{posts.length} bài viết trong chủ đề này.</p></div>
+  <PostList posts={posts} />
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { allPosts, withBase } from '../lib/posts';
+const posts = await allPosts();
+---
+<BaseLayout>
+  <section class="hero">
+    <span class="eyebrow">A PERSONAL DIGITAL GARDEN <span class="spark">✳</span></span>
+    <h1>Chậm lại một chút.<br/><em>Ghi lại nhiều hơn.</em></h1>
+    <p>Đây là một góc nhỏ để tôi lưu những trải nghiệm, suy nghĩ và những điều học được về công nghệ — từng ngày một.</p>
+    <div class="hero-actions"><a class="primary-link" href={withBase('/journal/')}>Đọc nhật ký <span aria-hidden="true">↗</span></a><a class="text-link" href={withBase('/about/')}>Về tôi →</a></div>
+  </section>
+  <section class="section"><div class="section-heading"><div><span class="eyebrow">THE NOTEBOOK</span><h2>Bài viết gần đây</h2></div><a class="text-link" href={withBase('/archive/')}>Xem tất cả →</a></div><PostList posts={posts.slice(0, 6)} /></section>
+  <div class="bottom-note"><span>✳</span><p>“Những điều bình thường hôm nay có thể trở thành ký ức đáng quý của ngày mai.”</p></div>
+</BaseLayout>

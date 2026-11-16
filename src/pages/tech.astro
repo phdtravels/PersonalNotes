@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { allPosts } from '../lib/posts';
+const posts = (await allPosts()).filter(p => p.data.category === 'tech');
+---
+<BaseLayout title="Tech" description="Ghi chép về lập trình, phần mềm và công nghệ.">
+  <div class="page-heading"><span class="eyebrow">BUILD, BREAK & LEARN</span><h1>Tech<span class="accent-dot">.</span></h1><p>Những gì tôi đang học, thử nghiệm, làm hỏng rồi học lại về công nghệ.</p></div>
+  <PostList posts={posts} />
+</BaseLayout>
