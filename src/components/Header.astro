@@ -1,22 +1,81 @@
+
 ---
 import { SITE } from '../site';
 import { withBase } from '../lib/posts';
+
 const nav = [
-  ['/', 'Home'], ['/journal/', 'Journal'], ['/tech/', 'Tech'],
-  ['/tags/', 'Tags'], ['/archive/', 'Archive'], ['/about/', 'About'],
+  ['/', 'Home'],
+  ['/journal/', 'Journal'],
+  ['/tech/', 'Tech'],
+  ['/tags/', 'Tags'],
+  ['/archive/', 'Archive'],
+  ['/about/', 'About'],
+  ['/search/', 'Search'],
 ];
+
 const pathname = Astro.url.pathname;
 ---
+
 <header class="site-header container">
-  <a class="brand" href={withBase('/')} aria-label="Về trang chủ"><span class="brand-mark">✳</span> {SITE.shortTitle}</a>
+  <a
+    class="brand"
+    href={withBase('/')}
+    aria-label="Về trang chủ"
+  >
+    <span class="brand-mark">✳</span>
+    {SITE.shortTitle}
+  </a>
+
   <nav class="nav" aria-label="Điều hướng chính">
-    {nav.map(([url, name]) => <a class:list={['nav-link', { active: pathname === withBase(url) }]} href={withBase(url)}>{name}</a>)}
+    {nav.map(([url, name]) => (
+      <a
+        class:list={[
+          'nav-link',
+          { active: pathname === withBase(url) }
+        ]}
+        href={withBase(url)}
+      >
+        {name}
+      </a>
+    ))}
   </nav>
-  <a href={`${import.meta.env.BASE_URL}search/`}>
-  🔎 Search
-</a>
-  <button class="theme-toggle" type="button" aria-label="Đổi giao diện sáng tối" title="Đổi giao diện sáng tối" data-theme-toggle>
-    <svg class="sun-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
-    <svg class="moon-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+
+  <button
+    class="theme-toggle"
+    type="button"
+    aria-label="Đổi giao diện sáng tối"
+    title="Đổi giao diện sáng tối"
+    data-theme-toggle
+  >
+    <svg
+      class="sun-icon"
+      viewBox="0 0 24 24"
+      width="19"
+      height="19"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.7"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+    </svg>
+
+    <svg
+      class="moon-icon"
+      viewBox="0 0 24 24"
+      width="19"
+      height="19"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.7"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z" />
+    </svg>
   </button>
 </header>
