@@ -4,12 +4,26 @@ import type { Post } from '../lib/posts';
 import { formatDate, tagUrl, withBase } from '../lib/posts';
 interface Props { post: Post; }
 const { post } = Astro.props;
+
+const categoryLabels = {
+  journal: 'Journal',
+  tech: 'Tech',
+  business: 'Business',
+};
+
+const category = post.data.category;
+const backUrl = withBase(`/${category}/`);
+const backLabel = categoryLabels[category];
+
 ---
 <BaseLayout title={post.data.title} description={post.data.description}>
   <article>
-    <a class="back-link" href={withBase(post.data.category === 'tech' ? '/tech/' : '/journal/')}>← Quay lại {post.data.category === 'tech' ? 'Tech' : 'Journal'}</a>
+    <a class="back-link" href={backUrl}>
+      ← Quay lại {backLabel}
+    </a>
     <header class="article-header">
-      <div class="eyebrow"><time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time><span class="meta-dot">·</span>{post.data.category === 'tech' ? 'Tech' : 'Journal'}</div>
+      <div class="eyebrow"><time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time><span class="meta-dot">·</span>
+      {categoryLabels[post.data.category]}</div>
       <h1 class="article-title">{post.data.title}</h1>
       <p class="article-description">{post.data.description}</p>
       {post.data.updatedDate && <p class="muted small">Cập nhật: {formatDate(post.data.updatedDate)}</p>}
