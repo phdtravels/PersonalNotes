@@ -1,0 +1,127 @@
+
+---
+const base = import.meta.env.BASE_URL;
+const searchBundle = `${base}pagefind/`;
+---
+
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tìm kiếm — PersonalNotes</title>
+
+    <link
+      rel="stylesheet"
+      href={`${searchBundle}pagefind-component-ui.css`}
+    />
+
+    <script
+      is:inline
+      type="module"
+      src={`${searchBundle}pagefind-component-ui.js`}
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <a class="logo" href={base}>✳ notes.</a>
+      <nav>
+        <a href={base}>Home</a>
+        <a href={`${base}search/`}>Search</a>
+      </nav>
+    </header>
+
+    <main>
+      <p class="eyebrow">✳ EXPLORE THE GARDEN</p>
+      <h1>Tìm trong <em>ghi chép.</em></h1>
+      <p class="subtitle">
+        Tìm kiếm những ý tưởng, trải nghiệm
+        và kiến thức đã được lưu lại.
+      </p>
+
+      <section class="search">
+        <pagefind-config
+          base-url={base}
+          bundle-path={searchBundle}
+        ></pagefind-config>
+
+        <pagefind-input
+          placeholder="Tìm tiêu đề hoặc nội dung..."
+        ></pagefind-input>
+
+        <pagefind-summary></pagefind-summary>
+        <pagefind-results></pagefind-results>
+      </section>
+    </main>
+
+    <style>
+      :global(*) { box-sizing: border-box; }
+
+      :global(body) {
+        margin: 0;
+        background: #faf8f4;
+        color: #252720;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        max-width: 1100px;
+        margin: auto;
+        padding: 30px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e8e3da;
+      }
+
+      .logo {
+        font-size: 30px;
+        font-weight: 800;
+        color: #252720;
+        text-decoration: none;
+      }
+
+      nav { display: flex; gap: 24px; }
+
+      nav a {
+        color: #666;
+        text-decoration: none;
+      }
+
+      main {
+        max-width: 820px;
+        margin: 100px auto;
+        padding: 0 24px;
+      }
+
+      .eyebrow {
+        letter-spacing: 3px;
+        color: #ca6647;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(42px, 7vw, 76px);
+        font-weight: 400;
+        line-height: 1.1;
+      }
+
+      h1 em {
+        color: #ca6647;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        color: #777;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .search {
+        margin-top: 48px;
+      }
+    </style>
+  </body>
+</html>
