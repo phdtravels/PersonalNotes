@@ -38,3 +38,15 @@ draft	false để xuất bản, true để ẩn khỏi website
 
 Upload ảnh:
 ![Một buổi sáng bình yên](/PersonalNotes/images/buoi-sang.jpg)
+
+7. Một số cú pháp Markdown bạn sẽ thường dùng
+Muốn hiển thị	Cách viết
+Tiêu đề lớn	# Tiêu đề
+Tiêu đề nhỏ	## Tiêu đề
+Chữ đậm	**Nội dung**
+Chữ nghiêng	*Nội dung*
+Danh sách	- Một mục
+Trích dẫn	> Nội dung
+Đường dẫn	[Google](https://google.com)
+Chèn ảnh	![Mô tả](đường-dẫn-ảnh)
+

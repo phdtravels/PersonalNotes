@@ -16,14 +16,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+        - name: Checkout
+          uses: actions/checkout@v4
 
-      - name: Build and upload
-        uses: withastro/action@v6
-        with:
-          node-version: '24'
-          package-manager: npm
+        - name: Setup Node.js 24
+          uses: actions/setup-node@v4
+          with:
+            node-version: '24'
+
+        - name: Verify Node.js
+          run: node -v
+
+        - name: Build and upload
+          uses: withastro/action@v6
+          with:
+            node-version: '24'
+      # - name: Checkout
+      #   uses: actions/checkout@v4
+
+      # - name: Build and upload
+      #   uses: withastro/action@v6
+      #   with:
+      #     node-version: '24'
+      #     package-manager: npm
 
   deploy:
     needs: build
