@@ -50,3 +50,4 @@ Trích dẫn	> Nội dung
 Đường dẫn	[Google](https://google.com)
 Chèn ảnh	![Mô tả](đường-dẫn-ảnh)
 
+cách đặt tên file 2026-11-17-template-post-moi.md
