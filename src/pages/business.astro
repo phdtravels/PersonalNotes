@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { allPosts } from '../lib/posts';
+const posts = (await allPosts()).filter(p => p.data.category === 'business');
+---
+<BaseLayout title="Business" description="Ghi chép về kinh doanh, tài chính cá nhân.">
+  <div class="page-heading"><span class="eyebrow">READ, BREAK, THINK, LEARN & PRACTICE</span><h1>Business<span class="accent-dot">.</span></h1><p>Những gì tôi đang học, áp dụng, thực hiện trong hành trình tiến tới tự do tài chính.</p></div>
+  <PostList posts={posts} />
+</BaseLayout>

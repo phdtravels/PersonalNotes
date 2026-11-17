@@ -2,12 +2,10 @@
 title: "60 ngày rèn luyệt tư duy kinh doanh"
 description: "Rèn luyện tư duy, tích luỹ tư bản, tìm kiếm cơ hội, hành động kiểm chứng năng lực đã học."
 pubDate: 2026-11-17
-category: journal
+category: business
 tags: [life, personal, business]
 draft: false
 ---
-
-![Đức Datlailatma](/PersonalNotes/images/datlailatma.png)
 
 Tiền rất quan trọng cho việc làm ăn kinh doanh, nhưng tư duy và góc nhìn mới là thứ quyết định sự thành công của doanh nhân.
 
