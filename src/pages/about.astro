@@ -10,6 +10,6 @@ import { SITE } from '../site';
     <h2>Tại sao tôi viết?</h2>
     <p>Để nhớ lâu hơn, hiểu rõ hơn, và đôi khi tìm được những người có cùng mối quan tâm.</p>
     <h2>Liên hệ</h2>
-    <p>Bạn có thể chỉnh nội dung trang này trong <code>src/pages/about.astro</code>. {SITE.email && <a href={`mailto:${SITE.email}`}>Gửi email cho tôi</a>}</p>
+    <p>{SITE.email && <a href={`mailto:${SITE.email}`}>Gửi email cho tôi</a>}</p>
   </div>
 </BaseLayout>
